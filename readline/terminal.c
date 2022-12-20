@@ -51,9 +51,9 @@
 /* System-specific feature definitions and include files. */
 #include "rldefs.h"
 
-//#if defined (GWINSZ_IN_SYS_IOCTL) && !defined (TIOCGWINSZ)
+#ifndef __MINGW32__
 #  include <sys/ioctl.h>
-//#endif /* GWINSZ_IN_SYS_IOCTL && !TIOCGWINSZ */
+#endif
 
 #ifdef __MSDOS__
 # include <pc.h>
@@ -97,7 +97,11 @@ static int tcap_initialized;
 #  if defined (__EMX__) || defined (NEED_EXTERN_PC)
 extern
 #  endif /* __EMX__ || NEED_EXTERN_PC */
+#ifndef __MINGW32__
 char PC, *BC, *UP;
+#else
+char *BC, *UP;
+#endif
 #endif /* __linux__ */
 
 /* Some strings to control terminal actions.  These are output by tputs (). */

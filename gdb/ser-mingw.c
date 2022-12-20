@@ -34,6 +34,8 @@
 
 #include "command.h"
 
+#include <winsock2.h>
+
 void _initialize_ser_windows (void);
 
 struct ser_windows_state

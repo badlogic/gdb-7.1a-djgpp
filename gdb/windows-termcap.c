@@ -50,6 +50,7 @@ tgetstr (char *name, char **area)
   return NULL;
 }
 
+#ifndef __MINGW32__
 int
 tputs (char *string, int nlines, int (*outfun) ())
 {
@@ -58,6 +59,7 @@ tputs (char *string, int nlines, int (*outfun) ())
 
   return 0;
 }
+#endif
 
 char *
 tgoto (const char *cap, int col, int row)

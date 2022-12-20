@@ -16,3 +16,11 @@ make -j8
 ```
 
 The `gdb` executable can then be found in the `gdb/` folder.
+
+### Windows
+Get `Msys`/`MinGW64` and ensure you have `autoconf` and `gcc` installed. Then:
+
+```
+./configure --target=i586-pc-msdosdjgpp --disable-werror
+make -j8
+```
