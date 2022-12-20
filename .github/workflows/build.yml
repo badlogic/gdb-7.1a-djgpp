@@ -57,6 +57,8 @@ jobs:
 
       - shell: msys2 {0}
         run: |
+          pacman --noconfirm --needed -S autoconf automake make pkg-config git libtool zip
+          pacman --noconfirm --needed -S mingw-w64-x86_64-toolchain nasm yasm
           ./configure --target=i586-pc-msdosdjgpp --disable-werror
           make
 
