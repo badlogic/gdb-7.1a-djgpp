@@ -43,7 +43,7 @@ jobs:
           export CFLAGS="-arch arm64"
           export CCFLAGS="-arch arm64"
           export LDFLAGS="-arch arm64"
-          ./configure --with-included-gettext --target=i586-pc-msdosdjgpp --disable-werror
+          ./configure --with-included-gettext --build=x86_64-unknown-linux --target=i586-pc-msdosdjgpp --disable-werror
           make
 
       - name: Upload artifacts
