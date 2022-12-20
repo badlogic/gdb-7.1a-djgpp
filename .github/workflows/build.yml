@@ -31,26 +31,26 @@ jobs:
           name: natives-macos-x86_64
           path: gdb/gdb
 
-  natives-macos-aarch64:
-    runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-
-      - name: Build macOS natives
-        run: |
-          export CFLAGS="-arch arm64"
-          export CCFLAGS="-arch arm64"
-          export LDFLAGS="-arch arm64"
-          ./configure --with-included-gettext --build=x86_64-unknown-linux --target=i586-pc-msdosdjgpp --disable-werror
-          make
-
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: natives-macos-aarch64
-          path: gdb/gdb
+  #natives-macos-aarch64:
+  #  runs-on: macos-latest
+  #  steps:
+  #    - uses: actions/checkout@v2
+  #      with:
+  #        fetch-depth: 0
+  #
+  #    - name: Build macOS natives
+  #      run: |
+  #        export CFLAGS="-arch arm64"
+  #        export CCFLAGS="-arch arm64"
+  #        export LDFLAGS="-arch arm64"
+  #        ./configure --with-included-gettext --build=x86_64-unknown-linux --target=i586-pc-msdosdjgpp --disable-werror
+  #        make
+  #
+  #    - name: Upload artifacts
+  #      uses: actions/upload-artifact@v2
+  #      with:
+  #        name: natives-macos-aarch64
+  #        path: gdb/gdb
 
   natives-linux:
     runs-on: ubuntu-18.04
