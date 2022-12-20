@@ -51,9 +51,9 @@
 /* System-specific feature definitions and include files. */
 #include "rldefs.h"
 
-#if defined (GWINSZ_IN_SYS_IOCTL) && !defined (TIOCGWINSZ)
+//#if defined (GWINSZ_IN_SYS_IOCTL) && !defined (TIOCGWINSZ)
 #  include <sys/ioctl.h>
-#endif /* GWINSZ_IN_SYS_IOCTL && !TIOCGWINSZ */
+//#endif /* GWINSZ_IN_SYS_IOCTL && !TIOCGWINSZ */
 
 #ifdef __MSDOS__
 # include <pc.h>
@@ -95,7 +95,7 @@ static int tcap_initialized;
 
 #if !defined (__linux__)
 #  if defined (__EMX__) || defined (NEED_EXTERN_PC)
-extern 
+extern
 #  endif /* __EMX__ || NEED_EXTERN_PC */
 char PC, *BC, *UP;
 #endif /* __linux__ */
@@ -343,7 +343,7 @@ rl_reset_screen_size ()
 {
   _rl_get_screen_size (fileno (rl_instream), 0);
 }
-     
+
 void
 rl_resize_terminal ()
 {

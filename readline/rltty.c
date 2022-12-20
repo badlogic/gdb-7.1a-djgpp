@@ -37,9 +37,9 @@
 
 #include "rldefs.h"
 
-#if defined (GWINSZ_IN_SYS_IOCTL)
+//#if defined (GWINSZ_IN_SYS_IOCTL)
 #  include <sys/ioctl.h>
-#endif /* GWINSZ_IN_SYS_IOCTL */
+//#endif /* GWINSZ_IN_SYS_IOCTL */
 
 #include "rltty.h"
 #include "readline.h"
@@ -553,7 +553,7 @@ set_tty_settings (tty, tiop)
 {
   if (_set_tty_settings (tty, tiop) < 0)
     return -1;
-    
+
 #if 0
 
 #if defined (TERMIOS_TTY_DRIVER)
@@ -701,7 +701,7 @@ rl_prep_terminal (meta_flag)
       /* If editing in vi mode, make sure we set the bindings in the
 	 insertion keymap no matter what keymap we ended up in. */
       if (rl_editing_mode == vi_mode)
-	_rl_bind_tty_special_chars (vi_insertion_keymap, tio);	
+	_rl_bind_tty_special_chars (vi_insertion_keymap, tio);
       else
 #endif
 	_rl_bind_tty_special_chars (_rl_keymap, tio);
