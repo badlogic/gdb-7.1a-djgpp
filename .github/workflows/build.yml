@@ -83,6 +83,8 @@ jobs:
         run: |
           pacman --noconfirm --needed -S autoconf automake make pkg-config git libtool zip ncurses
           pacman --noconfirm --needed -S mingw-w64-x86_64-toolchain nasm yasm
+          export CFLAGS="-DNCURSES_STATIC"
+          export CCFLAGS="-DNCURSES_STATIC"
           ./configure --target=i586-pc-msdosdjgpp --disable-werror
           make
 
