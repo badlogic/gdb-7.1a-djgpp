@@ -19,6 +19,9 @@ jobs:
 
       - name: Build macOS natives
         run: |
+          export CFLAGS="-arch x86_64"
+          export CCFLAGS="-arch x86_64"
+          export LDFLAGS="-arch x86_64"
           ./configure --with-included-gettext --target=i586-pc-msdosdjgpp --disable-werror
           make
 
@@ -37,6 +40,9 @@ jobs:
 
       - name: Build macOS natives
         run: |
+          export CFLAGS="-arch arm64"
+          export CCFLAGS="-arch arm64"
+          export LDFLAGS="-arch arm64"
           ./configure -host=arm-apple-darwin --with-included-gettext --target=i586-pc-msdosdjgpp --disable-werror
           make
 
