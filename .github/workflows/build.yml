@@ -10,7 +10,7 @@ on:
 
 jobs:
 
-  macos:
+  natives-macos-intel:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
@@ -20,6 +20,24 @@ jobs:
       - name: Build macOS natives
         run: |
           ./configure --with-included-gettext --target=i586-pc-msdosdjgpp --disable-werror
+          make
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: natives-macos
+          path: gdb/gdb
+
+  natives-macos-aarch64:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Build macOS natives
+        run: |
+          ./configure --host=aarch64-apple-darwin --with-included-gettext --target=i586-pc-msdosdjgpp --disable-werror
           make
 
       - name: Upload artifacts
