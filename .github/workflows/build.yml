@@ -37,7 +37,7 @@ jobs:
 
       - name: Build macOS natives
         run: |
-          ./configure --host=aarch64-apple-darwin --with-included-gettext --target=i586-pc-msdosdjgpp --disable-werror
+          ./configure -host=arm-apple-darwin --with-included-gettext --target=i586-pc-msdosdjgpp --disable-werror
           make
 
       - name: Upload artifacts

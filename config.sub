@@ -1307,7 +1307,7 @@ case $os in
 		;;
 	-qnx*)
 		case $basic_machine in
-		    x86-* | i*86-*)
+		    x86-* | i*86-* | aarch64-)
 			;;
 		    *)
 			os=-nto$os
