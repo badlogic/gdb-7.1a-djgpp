@@ -25,7 +25,7 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: natives-macos
+          name: natives-macos-x86_64
           path: gdb/gdb
 
   natives-macos-aarch64:
@@ -43,7 +43,7 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: natives-macos
+          name: natives-macos-aarch64
           path: gdb/gdb
 
   natives-linux:
