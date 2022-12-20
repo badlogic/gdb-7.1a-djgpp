@@ -19,7 +19,7 @@ jobs:
 
       - name: Build macOS natives
         run: |
-          ./configure --target=i586-pc-msdosdjgpp --disable-werror
+          ./configure --with-included-gettext --target=i586-pc-msdosdjgpp --disable-werror
           make
 
       - name: Upload artifacts
