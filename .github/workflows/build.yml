@@ -10,7 +10,7 @@ on:
 
 jobs:
 
-  natives-macos-intel:
+  natives-macos-x86_64:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
