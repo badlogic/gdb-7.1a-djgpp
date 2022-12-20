@@ -1,0 +1,67 @@
+name: Build GDB 7.1a
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+    branches: [ main ]
+  release:
+    types: [ published ]
+
+jobs:
+
+  macos:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Build macOS natives
+        run: |
+          ./configure --target=i586-pc-msdosdjgpp --disable-werror
+          make
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: natives-macos
+          path: gdb/gdb
+
+  natives-linux:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Build Linux natives
+        run: |
+          ./configure --target=i586-pc-msdosdjgpp --disable-werror
+          make
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: natives-linux
+          path: gdb/gdb
+
+  natives-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - uses: msys2/setup-msys2@v2
+
+      - shell: msys2 {0}
+        run: |
+          ./configure --target=i586-pc-msdosdjgpp --disable-werror
+          make
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: natives-windows
+          path: gdb/gdb.exe
