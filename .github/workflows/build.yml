@@ -92,4 +92,6 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: natives-windows
-          path: gdb/gdb.exe
+          path: |
+            gdb/gdb.exe
+            /mingw64/bin/zlib1.dll
